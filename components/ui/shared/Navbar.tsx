@@ -2,26 +2,47 @@
 
 import Link from 'next/link'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
 const navLinks = [
-  { label: 'Services', href: '/services' },
+  { label: 'Home', href: '#home' },
 
-  { label: 'About', href: '/about' },
+  { label: 'Services', href: '#services' },
 
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '#about' },
 
-  { label: 'FAQ', href: '/contact' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScroll, setLastScroll] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY
+      if (current > lastScroll && current > 60) {
+        setIsVisible(false) // neeche ja raha — hide
+      } else {
+        setIsVisible(true) // upar aa raha — show
+      }
+      setLastScroll(current)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScroll])
 
   return (
-    <header className="w-full px-6 py-4">
+    <header
+      className={`sticky top-0 z-50 w-full px-6 py-4 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <nav className="flex items-center justify-between rounded-[14px] border border-indigo-800/15 bg-white/85 px-6 py-2 shadow-[0_1px_3px_rgba(99,102,241,0.08)] backdrop-blur-md">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">

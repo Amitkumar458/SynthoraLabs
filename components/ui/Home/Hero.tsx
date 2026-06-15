@@ -3,7 +3,7 @@ import AnimatedNetworkBackground from '@/components/ui/shared/AnimatedNetworkBac
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 pt-10 pb-14 text-center">
+    <section id="home" className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 pt-10 pb-14 text-center">
       
       {/* Glow Orbs */}
       <div className="pointer-events-none absolute -left-16 -top-20 h-[300px] w-[300px] rounded-full bg-indigo-600 opacity-[0.15] blur-[60px]" />

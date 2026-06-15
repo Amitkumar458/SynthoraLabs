@@ -241,6 +241,7 @@ export default function WhatWeDo() {
 
   return (
     <section
+      id="services"
       ref={sectionRef}
       className="relative isolate overflow-hidden w-full bg-[linear-gradient(180deg,#f7f8ff_0%,#edf2ff_45%,#f5fbff_100%)] pt-16 pb-10 px-4 sm:px-6 lg:px-12"
     >

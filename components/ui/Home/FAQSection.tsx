@@ -368,7 +368,7 @@ export default function FAQSection() {
         .animate-fade-up { animation: fadeUp 0.45s ease both; }
       `}</style>
 
-      <section className="relative isolate w-full overflow-hidden bg-[linear-gradient(180deg,#f7f8ff_0%,#edf2ff_45%,#f5fbff_100%)] px-4 py-12 sm:px-6 lg:px-12">
+      <section id="faq" className="relative isolate w-full overflow-hidden bg-[linear-gradient(180deg,#f7f8ff_0%,#edf2ff_45%,#f5fbff_100%)] px-4 py-12 sm:px-6 lg:px-12">
         {/* Dot grid overlay */}
         <div className="pointer-events-none absolute inset-0" />
 
@@ -476,7 +476,7 @@ export default function FAQSection() {
                 className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-md font-medium transition-all duration-200 ${
                   activeTab === cat
                     ? 'border-purple-400/50 bg-white/70 text-purple-700 shadow-sm'
-                    : 'border-purple-300/20 bg-white/30 text-slate-500/70 hover:border-purple-300/40 hover:text-slate-700'
+                    : 'border-purple-200 bg-white/30 text-slate-500 hover:border-purple-300/40 hover:text-slate-700'
                 }`}
               >
                 {TAB_ICONS[cat]}
