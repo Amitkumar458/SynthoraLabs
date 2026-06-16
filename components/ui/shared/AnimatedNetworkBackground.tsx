@@ -1,19 +1,19 @@
-"use client"
+'use client'
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 
 type Node = { x: number; y: number; r: number; opacity: number }
 type Line = { a: number; b: number; opacity: number }
 type Pulse = { li: number; t: number; speed: number; dir: number }
 
-const LINE_COLOR = "67,56,202"
-const NODE_COLOR = "67,56,202"
-const PULSE_COLOR = "rgba(67,56,202,0.82)"
+const LINE_COLOR = '67,56,202'
+const NODE_COLOR = '67,56,202'
+const PULSE_COLOR = 'rgba(67,56,202,0.82)'
 
 function setupAnimation(
   canvas: HTMLCanvasElement,
   ctx: CanvasRenderingContext2D,
-  onFrame: (id: number) => void,
+  onFrame: (id: number) => void
 ) {
   let W = 0
   let H = 0
@@ -27,6 +27,10 @@ function setupAnimation(
   let offCtx: CanvasRenderingContext2D | null = null
 
   function getNodeCount() {
+    const isMobile = W < 768
+    if (isMobile) {
+      return Math.min(40, Math.max(25, Math.floor((W * H) / 14000)))
+    }
     return Math.min(90, Math.max(70, Math.floor((W * H) / 9000)))
   }
 
@@ -54,7 +58,7 @@ function setupAnimation(
       offCtx!.lineTo(b.x, b.y)
       offCtx!.strokeStyle = `rgba(${LINE_COLOR},${l.opacity})`
       offCtx!.lineWidth = 0.8
-      offCtx!.lineCap = "round"
+      offCtx!.lineCap = 'round'
       offCtx!.stroke()
     })
 
@@ -125,8 +129,8 @@ function setupAnimation(
 
     // Sync offscreen canvas size
     if (!offscreen) {
-      offscreen = document.createElement("canvas")
-      offCtx = offscreen.getContext("2d")
+      offscreen = document.createElement('canvas')
+      offCtx = offscreen.getContext('2d')
     }
     offscreen.width = Math.round(W * dpr)
     offscreen.height = Math.round(H * dpr)
@@ -175,11 +179,11 @@ function setupAnimation(
   draw()
 
   const onResize = () => resize()
-  window.addEventListener("resize", onResize)
+  window.addEventListener('resize', onResize)
 
   return () => {
     cancelAnimationFrame(rafId)
-    window.removeEventListener("resize", onResize)
+    window.removeEventListener('resize', onResize)
   }
 }
 
@@ -191,7 +195,7 @@ export default function AnimatedNetworkBackground() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     return setupAnimation(canvas, ctx, (id) => {
@@ -202,7 +206,7 @@ export default function AnimatedNetworkBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-100vh pointer-events-none"
+      className="h-100vh pointer-events-none absolute inset-0 w-full"
       aria-hidden="true"
     />
   )

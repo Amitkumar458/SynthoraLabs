@@ -20,7 +20,7 @@ import {
   TrendingUp,
   ChevronRight,
 } from "lucide-react";
-import { Button } from "../common/button";
+import { Button } from "../common/Button";
 
 const tabs = [
   {
@@ -221,7 +221,7 @@ function useInView(threshold = 0.15) {
   return { ref, inView };
 }
 
-export default function WhatWeDo() {
+export default function WhatWeDo({onContactClick}: { onContactClick: () => void }) {
   const [activeTab, setActiveTab] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [displayTab, setDisplayTab] = useState(0);
@@ -373,6 +373,7 @@ export default function WhatWeDo() {
                 variant="default"
                 size="lg"
                 className="group inline-flex items-center gap-2 text-base"
+                onClick={onContactClick}
               >
                 Schedule a consultation
                 <ChevronRight

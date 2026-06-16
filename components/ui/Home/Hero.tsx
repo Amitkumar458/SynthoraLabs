@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import AnimatedNetworkBackground from '@/components/ui/shared/AnimatedNetworkBackground'
 
-export default function Hero() {
+interface HeroProps {
+  onContactClick?: () => void
+}
+
+export default function Hero({ onContactClick }: HeroProps) {
   return (
     <section id="home" className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 pt-10 pb-14 text-center">
-      
+
       {/* Glow Orbs */}
       <div className="pointer-events-none absolute -left-16 -top-20 h-[300px] w-[300px] rounded-full bg-indigo-600 opacity-[0.15] blur-[60px]" />
       <div className="pointer-events-none absolute -bottom-10 -right-10 h-[200px] w-[200px] rounded-full bg-cyan-400 opacity-[0.15] blur-[60px]" />
@@ -34,18 +38,18 @@ export default function Hero() {
         </h1>
         {/* Subtext — fade up, delay 500ms */}
         <p className="animate-[fadeUp_0.7s_ease_0.5s_both] mb-8 max-w-[640px] text-[18px] leading-[1.75] text-gray-600">
-          Struggling with slow data retrieval? Bottlenecked in customer support? 
-          We build custom AI Agents that work 24/7 so your human team can focus on what they do best. 
+          Struggling with slow data retrieval? Bottlenecked in customer support?
+          We build custom AI Agents that work 24/7 so your human team can focus on what they do best.
         </p>
 
         {/* CTA Buttons — fade up, delay 700ms */}
         <div className="animate-[fadeUp_0.7s_ease_0.7s_both] flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/services"
+          <button
+            onClick={onContactClick}
             className="rounded-[10px] bg-indigo-500 px-6 py-3 text-md font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(99,102,241,0.35)] hover:bg-indigo-600"
           >
             Speak with us!
-          </Link>
+          </button>
         </div>
 
       </div>

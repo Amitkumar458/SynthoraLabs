@@ -21,7 +21,7 @@ import {
   MessageSquare,
   Phone as PhoneIcon,
 } from 'lucide-react'
-import { Button } from '../common/button'
+import { Button } from '../common/Button'
 
 // ─── Types ───────────────────────────────────────────────
 type Category = 'all' | 'security' | 'ai' | 'technical' | 'integration'
@@ -289,7 +289,7 @@ function FAQCard({
               : 'border-purple-300/30 bg-transparent'
           }`}
         >
-          <Plus size={14} className="text-purple-600" />
+          <Plus size={18} className="text-purple-600" />
         </div>
       </button>
 
@@ -331,7 +331,7 @@ const TAB_LABELS: Record<Category, string> = {
 }
 
 // ─── Main Component ───────────────────────────────────────
-export default function FAQSection() {
+export default function FAQSection({ onContactClick }: { onContactClick: () => void }) {
   const [activeTab, setActiveTab] = useState<Category>('all')
   const [search, setSearch] = useState('')
   const [openId, setOpenId] = useState<number | null>(null)
@@ -548,6 +548,7 @@ export default function FAQSection() {
               variant="default"
               size="lg"
               className="group inline-flex items-center gap-2 text-base"
+              onClick={onContactClick}
             >
               {' '}
               <PhoneIcon size={16} />
