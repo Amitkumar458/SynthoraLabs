@@ -6,7 +6,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 const ACCESS_KEY = "d55e762a-ae83-4bca-9f11-dec516ffce92";
-const TO_EMAIL = "amitbhrampuriya@gmail.com";
+const TO_EMAIL = "hello@synthoralabs.ai";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 export interface ContactEmailPayload {
     name: string;

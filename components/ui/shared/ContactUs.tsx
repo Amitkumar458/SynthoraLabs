@@ -196,7 +196,19 @@ export default function ContactUs({ open, onClose }: ContactUsProps) {
         {/* ── Right: Form ────────────────────────────────────────────────── */}
         <div className="flex flex-1 flex-col overflow-hidden">
           {/* Scrollable form body */}
-          <div className="flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-7">
+          <div
+            className={cn(
+              "flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-7",
+              // Thin scrollbar — Firefox
+              "[scrollbar-width:thin] [scrollbar-color:rgba(129,140,248,0.5)_transparent]",
+              // Thin scrollbar — Chrome / Safari
+              "[&::-webkit-scrollbar]:w-1.5",
+              "[&::-webkit-scrollbar-track]:bg-transparent",
+              "[&::-webkit-scrollbar-thumb]:rounded-full",
+              "[&::-webkit-scrollbar-thumb]:bg-indigo-300/60",
+              "[&::-webkit-scrollbar-thumb:hover]:bg-indigo-400/80"
+            )}
+          >
             {submitted ? (
               /* ── Success state ──────────────────────────────────────── */
               <div className="flex h-full flex-col items-center justify-center gap-4 py-16 text-center animate-fadeUp">
