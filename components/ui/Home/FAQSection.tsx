@@ -21,7 +21,7 @@ import {
   MessageSquare,
   Phone as PhoneIcon,
 } from 'lucide-react'
-import { Button } from '../common/Button'
+import { Button } from '../common/button'
 
 // ─── Types ───────────────────────────────────────────────
 type Category = 'all' | 'security' | 'ai' | 'technical' | 'integration'

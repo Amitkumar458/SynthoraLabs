@@ -20,7 +20,7 @@ import {
   TrendingUp,
   ChevronRight,
 } from "lucide-react";
-import { Button } from "../common/Button";
+import { Button } from "../common/button";
 
 const tabs = [
   {

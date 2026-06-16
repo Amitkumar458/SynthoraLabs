@@ -15,7 +15,7 @@ import { TextAreaField } from "@/components/ui/common/textarea";
 import { PhoneInputField } from "@/components/ui/common/PhoneInputField";
 import { cn } from "@/libs/utils";
 import { useState } from "react";
-import { Button } from "../common/Button";
+import { Button } from "../common/button";
 import { sendContactEmail } from "@/helpers/sendEmail";
 
 // ─── Validation ───────────────────────────────────────────────────────────────
