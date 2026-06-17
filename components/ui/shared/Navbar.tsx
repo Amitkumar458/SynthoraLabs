@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
+import { Button } from '../common/button'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -17,7 +18,7 @@ const navLinks = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-export default function Navbar() {
+export default function Navbar({onContactClick}: {onContactClick: () => void}) {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScroll, setLastScroll] = useState(0)
@@ -76,12 +77,14 @@ export default function Navbar() {
         {/* CTA Button */}
 
         <div className="hidden items-center gap-3 md:flex">
-          <Link
-            href="/get-started"
+          <Button
+            onClick={() => {
+              onContactClick();
+            }}
             className="rounded-[9px] bg-indigo-500 px-[22px] py-2 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-indigo-600"
           >
             Get started
-          </Link>
+          </Button>
         </div>
 
         {/* Mobile Hamburger */}
@@ -110,13 +113,14 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link
-            href="/get-started"
+          <Button
+            onClick={() => {
+              onContactClick();
+            }}
             className="mt-1 rounded-[9px] bg-indigo-500 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-600"
-            onClick={() => setIsOpen(false)}
           >
             Get started
-          </Link>
+          </Button>
         </div>
       )}
     </header>
