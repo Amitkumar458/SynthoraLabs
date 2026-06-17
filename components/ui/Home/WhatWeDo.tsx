@@ -221,7 +221,7 @@ function useInView(threshold = 0.15) {
   return { ref, inView };
 }
 
-export default function WhatWeDo({onContactClick}: { onContactClick: () => void }) {
+export default function WhatWeDo({ onContactClick }: { onContactClick: () => void }) {
   const [activeTab, setActiveTab] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [displayTab, setDisplayTab] = useState(0);
@@ -243,7 +243,7 @@ export default function WhatWeDo({onContactClick}: { onContactClick: () => void 
     <section
       id="services"
       ref={sectionRef}
-      className="relative isolate overflow-hidden w-full bg-[linear-gradient(180deg,#f7f8ff_0%,#edf2ff_45%,#f5fbff_100%)] pt-16 pb-10 px-4 sm:px-6 lg:px-12"
+      className="relative isolate overflow-hidden w-full bg-[linear-gradient(180deg,#f7f8ff_0%,#edf2ff_45%,#f5fbff_100%)] pt-12 pb-10 px-4 sm:px-6 lg:px-12"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(129,140,248,0.14),transparent_24%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.11),transparent_28%),linear-gradient(180deg,rgba(247,248,255,0.98),rgba(237,242,255,0.95),rgba(245,251,255,0.98))]" />
@@ -255,9 +255,8 @@ export default function WhatWeDo({onContactClick}: { onContactClick: () => void 
 
         {/* Header */}
         <div
-          className={`flex flex-col lg:flex-row lg:items-start lg:gap-16 mb-6 transition-all duration-700 ease-out ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`flex flex-col lg:flex-row lg:items-start lg:gap-16 mb-6 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <div className="lg:w-1/2">
             <p className="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-3">
@@ -295,19 +294,17 @@ export default function WhatWeDo({onContactClick}: { onContactClick: () => void 
                 <button
                   key={t.id}
                   onClick={() => handleTabChange(i)}
-                  className={`relative px-5 py-4 text-lg font-semibold whitespace-nowrap transition-colors duration-200 focus:outline-none ${
-                    activeTab === i
-                      ? "text-gray-900"
-                      : "text-gray-500 hover:text-gray-700"
-                  }`}
+                  className={`relative px-5 py-4 text-lg font-semibold whitespace-nowrap transition-colors duration-200 focus:outline-none ${activeTab === i
+                    ? "text-gray-900"
+                    : "text-gray-500 hover:text-gray-700"
+                    }`}
                 >
                   <span className="hidden sm:inline">{t.label}</span>
                   <span className="sm:hidden">{t.shortLabel}</span>
                   {/* Active underline */}
                   <span
-                    className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${t.accent} transition-all duration-300 ${
-                      activeTab === i ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
-                    } origin-left`}
+                    className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${t.accent} transition-all duration-300 ${activeTab === i ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+                      } origin-left`}
                   />
                 </button>
               ))}
@@ -316,9 +313,8 @@ export default function WhatWeDo({onContactClick}: { onContactClick: () => void 
 
           {/* Tab content */}
           <div
-            className={`transition-all duration-220 ease-out ${
-              animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
-            }`}
+            className={`transition-all duration-220 ease-out ${animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
+              }`}
           >
             {/* Sub heading + desc */}
             <div className="mb-10">

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import FAQSection from '@/components/ui/Home/FAQSection'
 import Hero from '@/components/ui/Home/Hero'
+import AboutUs from '@/components/ui/Home/AboutUs'
 import WhatWeDo from '@/components/ui/Home/WhatWeDo'
 import Footer from '@/components/ui/shared/Footer'
 import Navbar from '@/components/ui/shared/Navbar'
@@ -15,6 +16,7 @@ export default function Home() {
     <main className="min-h-screen bg-[linear-gradient(180deg,#f7f8ff_0%,#edf2ff_45%,#f5fbff_100%)]">
       <Navbar onContactClick={() => setIsContactUsOpen(true)} />
       <Hero onContactClick={() => setIsContactUsOpen(true)} />
+      <AboutUs />
       <WhatWeDo onContactClick={() => setIsContactUsOpen(true)} />
       <FAQSection onContactClick={() => setIsContactUsOpen(true)}/>
       <Footer />
