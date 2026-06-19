@@ -56,9 +56,9 @@ export default function Navbar({ onContactClick }: { onContactClick: () => void 
       className={`bg-gradient-to-br from-indigo-100/45 via-violet-100/65 to-cyan-100/15 sticky top-0 z-50 w-full lg:px-6 px-4 lg:py-4 py-2 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
     >
-      <nav className="flex items-center justify-between rounded-[14px] border border-indigo-800/15 bg-white/85 px-6 py-2 shadow-[0_1px_3px_rgba(99,102,241,0.08)] backdrop-blur-md">
+      <nav className="flex items-center justify-between rounded-[14px] border border-indigo-800/15 bg-white/85 lg:pl-6 lg:pr-6 pl-3 pr-6 py-2 shadow-[0_1px_3px_rgba(99,102,241,0.08)] backdrop-blur-md">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-1">
           <Image
             src="/Icon-PNG.png"
             alt="Synthora AI Labs logo"
