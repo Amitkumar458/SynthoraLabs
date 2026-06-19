@@ -5,8 +5,8 @@
 //    if (result.success) { ... } else { console.error(result.message) }
 //
 // ─────────────────────────────────────────────────────────────────────────────
-const ACCESS_KEY = "d55e762a-ae83-4bca-9f11-dec516ffce92";
-const TO_EMAIL = "hello@synthoralabs.ai";
+const ACCESS_KEY = "24beb286-c95e-4ef1-b5c8-72f0a08aa846";
+const TO_EMAIL = " ping@synthoralabs.ai";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 export interface ContactEmailPayload {
     name: string;

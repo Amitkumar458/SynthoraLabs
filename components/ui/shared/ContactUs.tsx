@@ -184,7 +184,7 @@ export default function ContactUs({ open, onClose }: ContactUsProps) {
               className="flex items-center gap-2 text-md text-white/80 hover:text-white transition-colors"
             >
               <Mail size={16} />
-              hello@synthoralabs.ai
+              ping@synthoralabs.ai
             </a>
             <span className="flex items-center gap-2 text-md text-white/80">
               <Phone size={16} />

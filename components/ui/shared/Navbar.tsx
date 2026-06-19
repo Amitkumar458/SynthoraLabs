@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
@@ -21,36 +21,49 @@ const navLinks = [
 export default function Navbar({ onContactClick }: { onContactClick: () => void }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const [lastScroll, setLastScroll] = useState(0)
+  const lastScrollRef = useRef(0)
+  const isOpenRef = useRef(isOpen)
+
+  useEffect(() => {
+    isOpenRef.current = isOpen
+  }, [isOpen])
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isOpenRef.current) return
       const current = window.scrollY
-      if (current > lastScroll && current > 60) {
-        setIsVisible(false) // neeche ja raha — hide
+      if (current > lastScrollRef.current && current > 60) {
+        setIsVisible(false)
       } else {
-        setIsVisible(true) // upar aa raha — show
+        setIsVisible(true)
       }
-      setLastScroll(current)
+      lastScrollRef.current = current
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScroll])
+  }, [])
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full px-6 py-4 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+      className={`bg-gradient-to-br from-indigo-100/45 via-violet-100/65 to-cyan-100/15 sticky top-0 z-50 w-full lg:px-6 px-4 lg:py-4 py-2 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
     >
       <nav className="flex items-center justify-between rounded-[14px] border border-indigo-800/15 bg-white/85 px-6 py-2 shadow-[0_1px_3px_rgba(99,102,241,0.08)] backdrop-blur-md">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="/images/logo-new.png"
+            src="/Icon-PNG.png"
             alt="Synthora AI Labs logo"
-            width={60}
-            height={60}
+            width={80}
+            height={80}
             priority
             className="object-contain"
           />
